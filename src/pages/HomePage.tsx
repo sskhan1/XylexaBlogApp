@@ -17,7 +17,7 @@ const HomePage: React.FC = () => {
     if (error) return <ErrorMessage error={error} />;
     return <BlogList storyIds={visibleStories} />;
   }, [isLoading, error, visibleStories]);
-
+  
   return (
     <div className="homepage">
       <header className="homepage-header">

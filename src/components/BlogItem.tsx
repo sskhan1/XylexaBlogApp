@@ -2,6 +2,7 @@ import React from "react";
 import { useFetch } from "../hooks/useFetch";
 import { fetchStoryDetails } from "../services/api";
 import { BlogPost } from "../types";
+import "../styles/BlogItem.css"; // Import the CSS file
 
 interface BlogItemProps {
   id: number;
@@ -16,12 +17,14 @@ const BlogItem: React.FC<BlogItemProps> = React.memo(({ id }) => {
   if (error) return <div>Error loading post.</div>;
 
   return (
-    <div>
-      <h2>{post?.title}</h2>
-      <p>Author: {post?.by}</p>
-      <a href={`/post/${id}`}>Read more</a>
+    <div className="blog-card">
+      <h2 className="blog-title">{post?.title}</h2>
+      <p className="blog-meta">Author: {post?.by}</p>
+      <a href={`/post/${id}`} className="blog-link">
+        Read more
+      </a>
     </div>
   );
-})
+});
 
 export default BlogItem;
