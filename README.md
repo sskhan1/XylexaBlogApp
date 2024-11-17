@@ -1,5 +1,8 @@
 # Blog App (Hacker Rank)
 
+## Live App: 
+https://xylexa-blog-app.vercel.app/
+
 ## Description
 This is a demonstration project to showcase route protection and route manipulation using login functionality. The login feature is just a placeholder to switch to protected routes and is not fully implemented for production use.
 
