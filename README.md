@@ -1,4 +1,4 @@
-# Project Name
+# Blog App (Hacker Rank)
 
 ## Description
 This is a demonstration project to showcase route protection and route manipulation using login functionality. The login feature is just a placeholder to switch to protected routes and is not fully implemented for production use.
