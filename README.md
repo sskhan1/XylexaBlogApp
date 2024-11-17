@@ -1,50 +1,39 @@
-# React + TypeScript + Vite
+# Project Name
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
+This is a demonstration project to showcase route protection and route manipulation using login functionality. The login feature is just a placeholder to switch to protected routes and is not fully implemented for production use.
 
-Currently, two official plugins are available:
+Additionally, this project loads blog data from the Hacker News API and utilizes an infinite scrolling technique to display how an API can be integrated with the frontend in React. The infinite scrolling allows the user to seamlessly load more content as they scroll down, simulating real-time data fetching in a dynamic web application.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Prerequisites
+Make sure you have the following installed on your system:
+- [npm](https://www.npmjs.com/get-npm)
+- Node.js version 18 (You can check your node version by running `node -v` in your terminal)
 
-## Expanding the ESLint configuration
+## Setup Instructions
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. Clone the repository to your local machine:
+   ```bash
+   git clone <repository-url>
 
-- Configure the top-level `parserOptions` property like this:
+2. Navigate to the project directory:
+   cd <project-directory>
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+3. Install the dependencies:
+   npm install / npm i
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+4. Run the Project:
+   npm run dev
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+5. Open your browser and navigate to:
+   http://localhost:PORT
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+
+## Login (For Protected Routes)
+To access the detailed page, you will need to log in with the following credentials:
+
+1. Username: user
+2. Password: password
+
+## Note: The login functionality here is just a demonstration of switching to protected routes. It is not a full authentication system and only shows how to manipulate routes based on login status.
+   

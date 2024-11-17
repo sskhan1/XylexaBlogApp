@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 import { fetchStoryDetails } from "../services/api";
 import { BlogPost } from "../types";
@@ -7,6 +7,7 @@ import "../styles/DetailPage.css";
 
 const DetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();  // Use navigate hook for redirecting
   const { data: post, isLoading, error } = useFetch<BlogPost>(
     fetchStoryDetails(Number(id))
   );
@@ -17,7 +18,12 @@ const DetailPage: React.FC = () => {
   const formatTime = (timestamp: number | undefined): string => {
     if (!timestamp) return "No content available.";
     const date = new Date(timestamp * 1000);
-    return date.toLocaleString(); 
+    return date.toLocaleString();
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('authToken'); 
+    navigate("/"); 
   };
 
   return (
@@ -28,9 +34,7 @@ const DetailPage: React.FC = () => {
           <strong>By:</strong> {post?.by} | <strong>Score:</strong> {post?.score} |{" "}
           <strong>Comments:</strong> {post?.descendants}
         </p>
-        <p className="blog-meta">
-        Published: {formatTime(post?.time)}
-      </p>
+        <p className="text">Published: {formatTime(post?.time)}</p>
         {post?.url && (
           <a
             href={post.url}
@@ -41,9 +45,14 @@ const DetailPage: React.FC = () => {
             Read Full Story
           </a>
         )}
-        <a href="/" className="back-link">
-          Back to Home
-        </a>
+        <div className="footer">
+          <a href="/" className="back-link">
+            Back to Home
+          </a>
+          <a href="/" className="logout-link" onClick={handleLogout}>
+            Logout
+          </a>
+        </div>
       </div>
     </div>
   );
